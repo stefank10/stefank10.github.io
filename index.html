@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stefan Karydis · Sport Science & Football Data</title>
+<meta name="description" content="Portfolio of Stefan Karydis, sport scientist and football data analyst: AFL analytics, automated match reporting, workflow automation and live match-day support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1F2A44;
+  --navy-deep: #18213A;
+  --gold: #8C6A2F;
+  --gold-line: #C9A464;
+  --paper: #FFFFFF;
+  --mist: #EEF1F5;
+  --ink: #1F2A44;
+  --ink-soft: #4A5468;
+  --rule: #D8DDE5;
+  --mark: #FFF1B8;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Source Serif 4", Georgia, serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121826;
+    --mist: #1A2233;
+    --ink: #E6EAF1;
+    --ink-soft: #AEB6C4;
+    --rule: #2C3549;
+    --gold: #D2AF6D;
+    --mark: #5A4A1E;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--gold); }
+:focus-visible { outline: 2px solid var(--gold-line); outline-offset: 3px; border-radius: 2px; }
+mark.todo { background: var(--mark); color: inherit; padding: 0 .2em; }
+
+.wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+
+/* Hero */
+.hero { background: var(--navy); color: #F4F6FA; }
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+  padding-block: 4.5rem 4rem;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(3rem, 7vw, 5.25rem);
+  line-height: .92;
+  letter-spacing: .01em;
+  margin: 0 0 1.25rem;
+}
+.hero .role {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  color: var(--gold-line);
+  margin: 0 0 1.25rem;
+  letter-spacing: .02em;
+}
+.hero p.lede { max-width: 34em; margin: 0 0 1.75rem; color: #D9DEE8; }
+.hero nav { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; font-family: var(--display); font-size: 1.15rem; letter-spacing: .03em; }
+.hero nav a { color: #F4F6FA; text-decoration: none; border-bottom: 1px solid var(--gold-line); padding-bottom: 2px; }
+.hero nav a:hover { color: var(--gold-line); }
+
+.ground { width: 100%; max-width: 460px; justify-self: end; }
+.ground * { fill: none; stroke: var(--gold-line); stroke-width: 1.1; vector-effect: non-scaling-stroke; }
+.ground .boundary { stroke-width: 1.6; }
+.ground .draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .ground .draw { stroke-dashoffset: 1; animation: draw 2.4s cubic-bezier(.6,.1,.3,1) forwards; }
+  .ground .d2 { animation-delay: .5s; }
+  .ground .d3 { animation-delay: .9s; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+}
+
+.facts { background: var(--navy-deep); color: #C7CEDB; font-size: .95rem; }
+.facts .wrap { padding-block: 1rem; }
+.facts p { margin: 0; }
+
+/* Sections */
+section { padding-block: 4.5rem 1rem; }
+h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1;
+  margin: 0 0 .75rem;
+}
+.section-intro { max-width: 40em; color: var(--ink-soft); margin: 0 0 2.5rem; }
+
+.case {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 2.75rem;
+  padding-block: 2.75rem;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+.case:nth-of-type(even) .case-media { order: -1; }
+.case h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+.case dl { margin: 0; }
+.case dt {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: .03em;
+  color: var(--gold);
+  margin-top: 1rem;
+}
+.case dd { margin: .15rem 0 0; max-width: 36em; }
+.case .more { margin-top: 1.25rem; font-family: var(--display); font-size: 1.15rem; letter-spacing: .03em; }
+.case .more a { text-decoration-color: var(--gold); }
+
+.case-media figure { margin: 0; }
+.case-media img, .case-media svg.flow {
+  border: 1px solid var(--rule);
+  background: #FCFCFB;
+  border-radius: 4px;
+}
+.case-media figcaption { font-size: .88rem; color: var(--ink-soft); margin-top: .6rem; max-width: 40em; }
+.thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: .75rem; }
+.thumbs a { display: block; }
+
+.watch { width: 100%; border-collapse: collapse; margin-top: 1.25rem; font-size: .92rem; }
+.watch caption { text-align: left; font-size: .88rem; color: var(--ink-soft); padding-bottom: .4rem; }
+.watch th, .watch td { text-align: left; padding: .35rem .4rem; border-bottom: 1px solid var(--rule); }
+.watch th { font-family: var(--display); font-weight: 600; font-size: 1rem; }
+.watch .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.flow { width: 100%; height: auto; }
+.flow .box { fill: var(--mist); stroke: var(--navy); stroke-width: 1.2; }
+.flow .hub { fill: var(--navy); }
+.flow text { font-family: var(--display); font-size: 15px; fill: #1F2A44; letter-spacing: .02em; }
+.flow .hub-text { fill: #F4F6FA; }
+.flow .arrow { stroke: var(--gold); stroke-width: 1.6; fill: none; marker-end: url(#tip); }
+.flow .tipfill { fill: var(--gold); }
+
+.matchday { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--gold); }
+.matchday li { position: relative; padding: 0 0 1.1rem 1.4rem; }
+.matchday li::before {
+  content: ""; position: absolute; left: -7px; top: .5rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--paper); border: 2px solid var(--gold);
+}
+.matchday strong { font-family: var(--display); font-weight: 600; font-size: 1.15rem; letter-spacing: .02em; display: block; }
+
+/* 90 days */
+.plan { background: var(--mist); margin-top: 3rem; padding-block: 4rem; }
+.plan ol { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+.plan li { counter-increment: step; }
+.plan li::before {
+  content: counter(step);
+  display: block;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--gold);
+  margin-bottom: .5rem;
+}
+.plan h3 { font-family: var(--display); font-weight: 600; font-size: 1.45rem; margin: 0 0 .4rem; }
+.plan p { margin: 0; }
+
+/* Background */
+.background .cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
+.background h3 { font-family: var(--display); font-weight: 600; font-size: 1.45rem; margin: 0 0 .75rem; }
+.background ul { list-style: none; margin: 0; padding: 0; }
+.background li { padding: .55rem 0; border-top: 1px solid var(--rule); }
+.background li span { display: block; font-size: .9rem; color: var(--ink-soft); }
+
+footer { margin-top: 4.5rem; background: var(--navy); color: #F4F6FA; }
+footer .wrap { padding-block: 3.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; align-items: end; }
+footer h2 { color: #F4F6FA; }
+footer p { margin: 0; color: #C7CEDB; max-width: 32em; }
+footer nav { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; font-family: var(--display); font-size: 1.2rem; letter-spacing: .03em; }
+footer nav a { color: #F4F6FA; text-decoration: none; border-bottom: 1px solid var(--gold-line); }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 2rem; padding-block: 3rem 2.5rem; }
+  .ground { justify-self: start; max-width: 340px; }
+  .case { grid-template-columns: 1fr; gap: 1.5rem; }
+  .case:nth-of-type(even) .case-media { order: 0; }
+  .plan ol, .background .cols { grid-template-columns: 1fr; gap: 2rem; }
+  section { padding-block: 3rem 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Stefan Karydis</h1>
+      <p class="role">Sport scientist and football data analyst</p>
+      <p class="lede">I work between the high-performance team and the data. I build the models, reports and tools that help football staff make better decisions, and I make sure the people using them can trust what they're looking at.</p>
+      <nav aria-label="Contact">
+        <a href="https://github.com/stefank10">GitHub</a>
+        <a href="https://www.linkedin.com/in/stefan-karydis-550a42129">LinkedIn</a>
+        <a href="mailto:stefan.karydis@gmail.com">Email me</a>
+      </nav>
+    </div>
+    <svg class="ground" viewBox="0 0 360 300" role="img" aria-label="Line drawing of an AFL ground">
+      <ellipse class="boundary draw" pathLength="1" cx="180" cy="150" rx="168" ry="138"/>
+      <rect class="draw d2" pathLength="1" x="155" y="125" width="50" height="50"/>
+      <circle class="draw d2" pathLength="1" cx="180" cy="150" r="5"/>
+      <circle class="draw d3" pathLength="1" cx="180" cy="150" r="1.6"/>
+      <line class="draw d2" pathLength="1" x1="180" y1="146" x2="180" y2="154"/>
+      <path class="draw d3" pathLength="1" d="M 22.6 101 A 50 50 0 0 1 22.6 199"/>
+      <path class="draw d3" pathLength="1" d="M 337.4 101 A 50 50 0 0 0 337.4 199"/>
+      <rect class="draw d3" pathLength="1" x="12" y="146.8" width="9" height="6.4"/>
+      <rect class="draw d3" pathLength="1" x="339" y="146.8" width="9" height="6.4"/>
+    </svg>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="wrap">
+    <p>Currently: high-performance intern at Geelong Football Club and match-day support at Catapult Sports. Completing a Master of Applied Sport Science at Deakin University.</p>
+  </div>
+</div>
+
+<main>
+<section id="work">
+  <div class="wrap">
+    <h2>Selected work</h2>
+    <p class="section-intro">Six pieces that show how I work. Nothing here uses club or player data: the analytics project runs on public AFL statistics, and the report sample uses synthetic data.</p>
+
+    <article class="case">
+      <div class="case-text">
+        <h3>AFL team analytics</h3>
+        <dl>
+          <dt>The question</dt>
+          <dd>Which team stats reflect how a club genuinely plays, and what actually explains a match margin? Most stat talk mixes real signal with week-to-week noise.</dd>
+          <dt>What I built</dt>
+          <dd>A reproducible Python project on public AFL data from 2019 to 2026. It tests the data against official results, measures how repeatable each team stat is, models the margin (trained on 2019 to 2025, tested on the unseen 2026 season) and maps the style of all 18 clubs.</dd>
+          <dt>What it showed</dt>
+          <dd>The model cut the typical error from 25.3 points (inside 50s alone) to 19.3. Along the way I caught a model that looked too good: rebound 50s were rebuilding the scoreboard, so they came out and a test now stops it happening again. I chose the simpler model on purpose, because a coach has to be able to read it.</dd>
+          <dt>Tools</dt>
+          <dd>Python (pandas, scikit-learn, statsmodels), R (fitzRoy), pytest, Git, AI coding agent</dd>
+        </dl>
+        <p class="more"><a href="https://github.com/stefank10/afl-team-analytics">Read the code and method on GitHub</a></p>
+      </div>
+      <div class="case-media">
+        <figure>
+          <a href="assets/margin_model.png"><img src="assets/margin_model.png" alt="Chart of how much each stat edge is worth in points of margin, led by marks inside 50" loading="lazy" width="1600" height="1440"></a>
+          <figcaption>What explains the margin once a game is played. Marks inside 50 carry the most weight, at about 2 points each.</figcaption>
+        </figure>
+        <div class="thumbs">
+          <a href="assets/style_map_2026.png"><img src="assets/style_map_2026.png" alt="2026 style map of the 18 AFL clubs" loading="lazy" width="1600" height="1480"></a>
+          <a href="assets/stat_reliability.png"><img src="assets/stat_reliability.png" alt="Chart ranking how repeatable each team stat is" loading="lazy" width="1600" height="1440"></a>
+        </div>
+      </div>
+    </article>
+
+
+    <article class="case">
+      <div class="case-text">
+        <h3>Plays like: a player similarity finder</h3>
+        <dl>
+          <dt>The question</dt>
+          <dd>When a recruiter needs "another one of him" for free agency, the trade period or an injury replacement, where do they start? Usually from memory and vision alone.</dd>
+          <dt>What I built</dt>
+          <dd>Profiles of every player-season since 2019 from 15 per-game rates, adjusted for time on ground. Clustering finds eight roles (rucks, key forwards, rebounding defenders and so on) from what players actually do, because public data doesn't record positions. For any 2026 player, the finder ranks the ten most similar players and lists the shared strengths behind each match.</dd>
+          <dt>What it showed</dt>
+          <dd>Roles hold up: players keep the same role from one season to the next 73% of the time, against 13% by chance. It's a starting point for a recruiting conversation, not a substitute for watching vision.</dd>
+          <dt>Tools</dt>
+          <dd>Python (pandas, scikit-learn), k-means clustering, cosine similarity, JavaScript</dd>
+        </dl>
+        <p class="more"><a href="players.html">Try the similarity finder</a></p>
+      </div>
+      <div class="case-media">
+        <figure>
+          <a href="players.html"><img src="assets/player_roles.png" alt="Heatmap of eight player roles and the stats that define each one" loading="lazy" width="2000" height="1120"></a>
+          <figcaption>The eight roles and what defines them. Blue is above the league average, orange below.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-text">
+        <h3>Development curves and a breakout watchlist</h3>
+        <dl>
+          <dt>The question</dt>
+          <dd>At contract time, which young players are genuinely ahead of the usual path, and which just had one good year?</dd>
+          <dt>What I built</dt>
+          <dd>A contribution score for every player (their own stats weighted by the margin model's points per stat), then a mixed-effects model of how that score changes with age, comparing each player with himself. It's backtested on 2024, 2025 and 2026, each time trained only on earlier seasons.</dd>
+          <dt>What it showed</dt>
+          <dd>The typical player peaks at about 26. The model beat "same as last season" by about 5% for under-23s, but not in every year, so the watchlist is a prompt for a closer look rather than a verdict. Projections pull back towards typical, because one big season is partly luck.</dd>
+          <dt>Tools</dt>
+          <dd>Python (statsmodels mixed-effects models, pandas), backtesting</dd>
+        </dl>
+        <p class="more"><a href="https://github.com/stefank10/afl-team-analytics#5-how-do-players-develop">Read the method and backtest</a></p>
+      </div>
+      <div class="case-media">
+        <figure>
+          <a href="assets/development_curve.png"><img src="assets/development_curve.png" alt="Typical AFL development curve by age, with five young players running well above it" loading="lazy" width="1600" height="1120"></a>
+          <figcaption>The typical development curve, and five under-23s running well above it.</figcaption>
+        </figure>
+        <table class="watch">
+          <caption>Watchlist: projected contribution next season (points of margin per game)</caption>
+          <thead><tr><th>Player</th><th>Club</th><th class="num">Age</th><th class="num">Projected</th></tr></thead>
+          <tbody>
+              <tr><td>Jason Horne-Francis</td><td>Port Adelaide</td><td class="num">23</td><td class="num">10.2</td></tr>
+              <tr><td>Harry Sheezel</td><td>North Melbourne</td><td class="num">22</td><td class="num">9.6</td></tr>
+              <tr><td>Will Ashcroft</td><td>Brisbane Lions</td><td class="num">22</td><td class="num">9.2</td></tr>
+              <tr><td>Logan Morris</td><td>Brisbane Lions</td><td class="num">21</td><td class="num">8.9</td></tr>
+              <tr><td>Jye Amiss</td><td>Fremantle</td><td class="num">23</td><td class="num">8.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-text">
+        <h3>Automated match reports</h3>
+        <dl>
+          <dt>The problem</dt>
+          <dd>Weekly match reports meant hours of exporting, copying and formatting before anyone could read a number, and the layout changed depending on who built it.</dd>
+          <dt>What I built</dt>
+          <dd>R Markdown reports that run end to end: data in, formatted report out, with a title page, contents, positional benchmarks, load quadrants and a plain-language coach summary. I built and maintain these at Geelong. The sample shown here is rebuilt on synthetic data.</dd>
+          <dt>Impact</dt>
+          <dd>One consistent report staff can scan in minutes.</dd>
+          <dt>Tools</dt>
+          <dd>R, R Markdown, ggplot2, Catapult OpenField exports</dd>
+        </dl>
+      </div>
+      <div class="case-media">
+        <figure>
+          <img src="assets/match-report-sample.png" alt="Two pages of charts from a sample match report: distance against positional benchmark, and a load quadrant of distance against high-speed running" loading="lazy" width="1122" height="1130">
+          <figcaption>Sample page from an automated match report. All numbers are synthetic; no club or player data is shown.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-text">
+        <h3>Joining up HP data</h3>
+        <dl>
+          <dt>The problem</dt>
+          <dd>Athlete data lived in separate systems, so staff spent time exporting and merging spreadsheets before they could even ask a question, and nobody could see how the numbers got from one place to another.</dd>
+          <dt>What I built</dt>
+          <dd>Pipelines that bring Catapult, VALD and Smartabase data into Snowflake. R Shiny apps that give staff one place to view and enter data. In-house rebuilds of reports the department used to license. Simple process maps so staff can see how their data flows, and a questionnaire to find the next bottlenecks worth automating.</dd>
+          <dt>Impact</dt>
+          <dd>Fewer manual steps, lower licensing costs, and staff who trust the data because it isn't a black box.</dd>
+          <dt>Tools</dt>
+          <dd>R, R Shiny, Python, SQL, Snowflake, vendor APIs</dd>
+        </dl>
+      </div>
+      <div class="case-media">
+        <figure>
+          <svg class="flow" viewBox="0 0 560 300" role="img" aria-label="Diagram: Catapult, VALD and Smartabase feed into Snowflake; R and Python turn that into reports and Shiny apps for staff and coaches">
+            <defs><marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="tipfill" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+            <rect class="box" x="6" y="34" width="138" height="44" rx="4"/><text x="75" y="61" text-anchor="middle">Catapult GPS</text>
+            <rect class="box" x="6" y="128" width="138" height="44" rx="4"/><text x="75" y="155" text-anchor="middle">VALD testing</text>
+            <rect class="box" x="6" y="222" width="138" height="44" rx="4"/><text x="75" y="249" text-anchor="middle">Smartabase AMS</text>
+            <rect class="hub" x="206" y="118" width="128" height="64" rx="4"/><text class="hub-text" x="270" y="146" text-anchor="middle">Snowflake</text><text class="hub-text" x="270" y="166" text-anchor="middle">one source</text>
+            <rect class="box" x="410" y="62" width="134" height="56" rx="4"/><text x="477" y="86" text-anchor="middle">Automated</text><text x="477" y="104" text-anchor="middle">reports</text>
+            <rect class="box" x="410" y="182" width="134" height="56" rx="4"/><text x="477" y="206" text-anchor="middle">Shiny apps</text><text x="477" y="224" text-anchor="middle">for staff</text>
+            <path class="arrow" d="M144 56 C 170 56, 175 130, 204 140"/>
+            <path class="arrow" d="M144 150 L 204 150"/>
+            <path class="arrow" d="M144 244 C 170 244, 175 170, 204 160"/>
+            <path class="arrow" d="M334 140 C 370 130, 375 92, 408 90"/>
+            <path class="arrow" d="M334 160 C 370 170, 375 210, 408 210"/>
+          </svg>
+          <figcaption>How the data flows. R and Python sit between Snowflake and what staff see.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-text">
+        <h3>Live match-day support</h3>
+        <dl>
+          <dt>The job</dt>
+          <dd>On game day, GPS data and live reporting have to work first time. Nobody in the coaches' box has time for a technical problem.</dd>
+          <dt>What I do</dt>
+          <dd>I support elite clubs' live GPS and reporting on match day for Catapult Sports. I triage problems in real time, fix what I can on the spot and escalate only what genuinely needs a specialist. Before that I ran live GPS collection at Richmond's first-team training and matches.</dd>
+          <dt>Why it matters</dt>
+          <dd>I know what staff need from data on a game day, and when they need it. Weekend work is already part of my week.</dd>
+          <dt>Tools</dt>
+          <dd>Catapult OpenField, live GNSS tracking</dd>
+        </dl>
+      </div>
+      <div class="case-media">
+        <ol class="matchday" aria-label="A typical match day">
+          <li><strong>Before the bounce</strong>Units on, checked and streaming; live dashboards set up the way that club's staff like them.</li>
+          <li><strong>Warm-up</strong>Confirm every player is tracking cleanly and fix anything that isn't before it matters.</li>
+          <li><strong>Each quarter</strong>Keep live splits accurate, answer questions from the box and triage issues as they happen.</li>
+          <li><strong>After the siren</strong>Data checked and ready for the post-game report and recovery decisions.</li>
+        </ol>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="plan" aria-labelledby="plan-title">
+  <div class="wrap">
+    <h2 id="plan-title">What I'd do in my first 90 days</h2>
+    <p class="section-intro">The details would change for every club. The order wouldn't.</p>
+    <ol>
+      <li><h3>Learn the questions</h3><p>Sit in on match review, meet the coaches, analysts and recruiters, and map where the data lives and who actually uses it.</p></li>
+      <li><h3>Deliver a quick win</h3><p>Automate one report or workflow that staff already rely on, so they get time back straight away.</p></li>
+      <li><h3>Get one model into use</h3><p>Build a model or tool with a coach, validate it properly and get it into the weekly workflow.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="background" aria-labelledby="bg-title">
+  <div class="wrap">
+    <h2 id="bg-title">Background</h2>
+    <div class="cols">
+      <div>
+        <h3>Experience</h3>
+        <ul>
+          <li>Masters Sport Science Intern, Geelong Football Club<span>AFL Men's High Performance, 2025 to present</span></li>
+          <li>Product Support Officer, Catapult Sports<span>Live match-day support, 2024 to present</span></li>
+          <li>Research Assistant, ACU SPRINT Research Centre<span>Data collection and analysis in R for PhD projects, 2025 to 2026</span></li>
+          <li>Sport Science Intern, Richmond Football Club<span>AFL Men's, 2023 to 2024</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Education and accreditation</h3>
+        <ul>
+          <li>Master of Applied Sport Science, Deakin University<span>2025 to 2026, High Distinction average</span></li>
+          <li>Bachelor of Exercise and Sport Science, Swinburne<span>Emerging Leader Honour, 2024</span></li>
+          <li>ESSA Accredited Exercise Scientist and Sport Scientist (Level 1)</li>
+          <li>ASCA Strength and Conditioning Coach, Level 2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h2>Let's talk</h2>
+      <p>I'm looking for a full-time role in an AFL club's high-performance or football analytics team.</p>
+    </div>
+    <nav aria-label="Contact">
+      <a href="mailto:stefan.karydis@gmail.com">stefan.karydis@gmail.com</a>
+      <a href="https://www.linkedin.com/in/stefan-karydis-550a42129">LinkedIn</a>
+      <a href="https://github.com/stefank10">GitHub</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
